@@ -73,15 +73,15 @@ public class HotelDatabase extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTabla = new javax.swing.JTable();
-        jTxtNacionalidad = new com.toedter.components.JLocaleChooser();
-        jTxtSalida = new com.toedter.calendar.JDateChooser();
         jBoxNumeroExternoHabitacion = new javax.swing.JComboBox<>();
-        jTxtNacimiento1 = new com.toedter.calendar.JDateChooser();
-        jTxtLlegada = new com.toedter.calendar.JDateChooser();
         jBoxGenero = new javax.swing.JComboBox<>();
         jBoxPension = new javax.swing.JComboBox<>();
         jBoxTipoHabitacion = new javax.swing.JComboBox<>();
         jBoxNumeroHabitacion = new javax.swing.JComboBox<>();
+        jBoxNacionalidad = new com.toedter.components.JLocaleChooser();
+        jTxtSalida = new com.toedter.calendar.JDateChooser();
+        jTxtNacimiento = new com.toedter.calendar.JDateChooser();
+        jTxtLlegada = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -278,7 +278,7 @@ public class HotelDatabase extends javax.swing.JFrame {
         jLabel23.setText("Subtotal");
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 570, 1280, 110));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 1280, 110));
 
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -299,14 +299,10 @@ public class HotelDatabase extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTabla);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 1050, 540));
-        getContentPane().add(jTxtNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 190, -1));
-        getContentPane().add(jTxtSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 190, -1));
 
         jBoxNumeroExternoHabitacion.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jBoxNumeroExternoHabitacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112" }));
         getContentPane().add(jBoxNumeroExternoHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 190, -1));
-        getContentPane().add(jTxtNacimiento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 190, -1));
-        getContentPane().add(jTxtLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 190, -1));
 
         jBoxGenero.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Hombre", "Mujer", "Otro" }));
@@ -323,6 +319,10 @@ public class HotelDatabase extends javax.swing.JFrame {
         jBoxNumeroHabitacion.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jBoxNumeroHabitacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012" }));
         getContentPane().add(jBoxNumeroHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 190, -1));
+        getContentPane().add(jBoxNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 190, -1));
+        getContentPane().add(jTxtSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 190, -1));
+        getContentPane().add(jTxtNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 190, -1));
+        getContentPane().add(jTxtLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 190, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -389,6 +389,7 @@ public class HotelDatabase extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jBoxGenero;
+    private com.toedter.components.JLocaleChooser jBoxNacionalidad;
     private javax.swing.JComboBox<String> jBoxNumeroExternoHabitacion;
     private javax.swing.JComboBox<String> jBoxNumeroHabitacion;
     private javax.swing.JComboBox<String> jBoxPension;
@@ -436,8 +437,7 @@ public class HotelDatabase extends javax.swing.JFrame {
     private javax.swing.JTextField jTxtEmail;
     private javax.swing.JTextField jTxtImpuestos;
     private com.toedter.calendar.JDateChooser jTxtLlegada;
-    private com.toedter.calendar.JDateChooser jTxtNacimiento1;
-    private com.toedter.components.JLocaleChooser jTxtNacionalidad;
+    private com.toedter.calendar.JDateChooser jTxtNacimiento;
     private javax.swing.JTextField jTxtNombre;
     private com.toedter.calendar.JDateChooser jTxtSalida;
     private javax.swing.JTextField jTxtSubtotal;
