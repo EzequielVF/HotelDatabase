@@ -154,9 +154,12 @@ public class HotelDatabase extends javax.swing.JFrame {
         jBoxTipoHabitacion = new javax.swing.JComboBox<>();
         jBoxNumeroHabitacion = new javax.swing.JComboBox<>();
         jBoxNacionalidad = new com.toedter.components.JLocaleChooser();
-        jTxtSalida = new com.toedter.calendar.JDateChooser();
-        jTxtNacimiento = new com.toedter.calendar.JDateChooser();
-        jTxtLlegada = new com.toedter.calendar.JDateChooser();
+        jPickSalida = new com.toedter.calendar.JDateChooser();
+        jPickNacimiento = new com.toedter.calendar.JDateChooser();
+        jPickLlegada = new com.toedter.calendar.JDateChooser();
+        jTxtSalida = new javax.swing.JTextField();
+        jTxtNacimiento = new javax.swing.JTextField();
+        jTxtLlegada = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -166,49 +169,49 @@ public class HotelDatabase extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jTxtCliente.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        getContentPane().add(jTxtCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 190, -1));
+        getContentPane().add(jTxtCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 160, -1));
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel2.setText("Nombre");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         jTxtNombre.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        getContentPane().add(jTxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 190, -1));
+        getContentPane().add(jTxtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 160, -1));
 
         jLabel3.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel3.setText("Apellido");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         jTxtApellido.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        getContentPane().add(jTxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 190, -1));
+        getContentPane().add(jTxtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, -1));
 
         jLabel4.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel4.setText("Direccion");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         jTxtDireccion.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        getContentPane().add(jTxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 190, -1));
+        getContentPane().add(jTxtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 160, -1));
 
         jLabel5.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel5.setText("Codigo postal");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         jTxtCodigoPostal.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        getContentPane().add(jTxtCodigoPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 190, -1));
+        getContentPane().add(jTxtCodigoPostal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 160, -1));
 
         jLabel6.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel6.setText("Telefono");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         jTxtTelefono.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        getContentPane().add(jTxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 190, -1));
+        getContentPane().add(jTxtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 160, -1));
 
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel7.setText("Email");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
         jTxtEmail.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        getContentPane().add(jTxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 190, -1));
+        getContentPane().add(jTxtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, -1));
 
         jLabel8.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel8.setText("Nacionalidad");
@@ -223,7 +226,7 @@ public class HotelDatabase extends javax.swing.JFrame {
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
         jTxtDni.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        getContentPane().add(jTxtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 190, -1));
+        getContentPane().add(jTxtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 160, -1));
 
         jLabel11.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel11.setText("Genero");
@@ -355,6 +358,7 @@ public class HotelDatabase extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 1280, 110));
 
+        jTabla.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -373,58 +377,206 @@ public class HotelDatabase extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTabla);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 1050, 540));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 1220, 540));
 
         jBoxNumeroExternoHabitacion.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jBoxNumeroExternoHabitacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "101", "102", "103", "104", "105", "106", "107", "108", "109", "110", "111", "112" }));
-        getContentPane().add(jBoxNumeroExternoHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 190, -1));
+        getContentPane().add(jBoxNumeroExternoHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, 160, -1));
 
         jBoxGenero.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jBoxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Hombre", "Mujer", "Otro" }));
-        getContentPane().add(jBoxGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 190, -1));
+        getContentPane().add(jBoxGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 160, -1));
 
         jBoxPension.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jBoxPension.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Media Pension", "Pension Completa" }));
-        getContentPane().add(jBoxPension, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 190, -1));
+        getContentPane().add(jBoxPension, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 160, -1));
 
         jBoxTipoHabitacion.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jBoxTipoHabitacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Simple", "Doble", "Family" }));
-        getContentPane().add(jBoxTipoHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 190, -1));
+        getContentPane().add(jBoxTipoHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 160, -1));
 
         jBoxNumeroHabitacion.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jBoxNumeroHabitacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012" }));
-        getContentPane().add(jBoxNumeroHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 190, -1));
-        getContentPane().add(jBoxNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 190, -1));
-        getContentPane().add(jTxtSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 190, -1));
-        getContentPane().add(jTxtNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 190, -1));
-        getContentPane().add(jTxtLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 190, -1));
+        getContentPane().add(jBoxNumeroHabitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, 160, -1));
+        getContentPane().add(jBoxNacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 160, -1));
+        getContentPane().add(jPickSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 160, -1));
+        getContentPane().add(jPickNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 160, -1));
+        getContentPane().add(jPickLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 160, -1));
+
+        jTxtSalida.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        getContentPane().add(jTxtSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 120, 20));
+
+        jTxtNacimiento.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        getContentPane().add(jTxtNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 120, 20));
+
+        jTxtLlegada.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        getContentPane().add(jTxtLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 120, 20));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimirActionPerformed
-        // TODO add your handling code here:
+        MessageFormat header = new MessageFormat("Printing in process");
+        MessageFormat footer = new MessageFormat("Page (0, number, integer)");
+        
+        try{
+            jTabla.print(JTable.PrintMode.NORMAL, header, footer);
+        }catch(Exception e){
+            System.err.format("No Printer found", e.getMessage());
+        }
     }//GEN-LAST:event_jButtonImprimirActionPerformed
 
     private void jButtonTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTotalActionPerformed
-        // TODO add your handling code here:
+        double HabitacionSimple = 30;
+        double HabitacionDoble = 60;
+        double HabitacionFamiliar = 90;
+        double mediaPension = 1.17;
+        double pensionCompleta = 1.33;
+        
+        
+        SimpleDateFormat Dformat = new SimpleDateFormat("dd-MM-yyyy");
+        Date llegada = null;
+        Date salida = null;
+        
+        try{
+            llegada = Dformat.parse(Dformat.format(jPickLlegada.getDate()));
+            salida = Dformat.parse(Dformat.format(jPickSalida.getDate()));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        long diferencia = salida.getTime() - llegada.getTime();
+        int dias = (int)(diferencia /1000 / 60 /60 /24);
+        
+        double costo;
+        double impuestos;
+        double total;
+        double tasa_iva = 0.21;
+        
+        if((String)jBoxTipoHabitacion.getSelectedItem() == "Simple"){
+            costo = HabitacionSimple * dias;
+        }else if((String)jBoxTipoHabitacion.getSelectedItem() == "Doble"){
+            costo = HabitacionDoble * dias;
+        }else{
+            costo = HabitacionFamiliar * dias;
+        }
+        
+        if((String)jBoxPension.getSelectedItem() == "Media Pension"){
+            costo = costo * mediaPension;
+        }else{
+            costo = costo * pensionCompleta;
+        }
+        impuestos = costo * tasa_iva;
+        total = impuestos + costo;
+        
+        jTxtSubtotal.setText(String.format("U$D %.2f", costo));
+        jTxtImpuestos.setText(String.format("U$D %.2f", impuestos));
+        jTxtTotal.setText(String.format("U$D %.2f", total));
     }//GEN-LAST:event_jButtonTotalActionPerformed
 
     private void jButtonReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReiniciarActionPerformed
-        // TODO add your handling code here:
+        /*DefaultTableModel model = (DefaultTableModel) jTabla.getModel();
+        model.setRowCount(0);*/
+        
+        jTxtCliente.setText("");
+        jTxtNombre.setText("");
+        jTxtApellido.setText("");
+        jTxtDireccion.setText("");
+        jTxtCodigoPostal.setText("");
+        jTxtTelefono.setText("");
+        jTxtEmail.setText("");
+        jBoxNacionalidad.setSelectedIndex(0);
+        jPickLlegada.setDate(null);
+        jTxtLlegada.setText("");
+        jPickSalida.setDate(null);
+        jTxtSalida.setText("");
+        jPickNacimiento.setDate(null);
+        jTxtNacimiento.setText("");
+        jTxtDni.setText("");
+        jBoxGenero.setSelectedIndex(0);
+        jBoxPension.setSelectedIndex(0);
+        jBoxTipoHabitacion.setSelectedIndex(0);
+        jBoxNumeroHabitacion.setSelectedIndex(0);
+        jBoxNumeroExternoHabitacion.setSelectedIndex(0);
+        jTxtImpuestos.setText("");
+        jTxtSubtotal.setText("");
+        jTxtTotal.setText("");
     }//GEN-LAST:event_jButtonReiniciarActionPerformed
 
     private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTabla.getModel();
+        model.setRowCount(0);
+        
+        DateFormat Nacimiento = new SimpleDateFormat("dd-MM-yyyy");
+        jTxtNacimiento.setText(Nacimiento.format(jPickNacimiento.getDate()));
+        
+        DateFormat Llegada = new SimpleDateFormat("dd-MM-yyyy");
+        jTxtLlegada.setText(Llegada.format(jPickLlegada.getDate()));
+        
+        DateFormat Salida = new SimpleDateFormat("dd-MM-yyyy");
+        jTxtSalida.setText(Salida.format(jPickSalida.getDate()));
+        
+        String sql = "INSERT INTO hotelDatabase(Cliente,Nombre,Apellido,Direccion,CodigoPostal,Telefono,Email,Nacionalidad,Nacimiento,DNI,"
+                    + "Genero,Llegada,Salida,Pension,Tipohabitacion,Numerohabitacion)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        
+        try{
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, jTxtCliente.getText());
+            pst.setString(2, jTxtNombre.getText());
+            pst.setString(3, jTxtApellido.getText());
+            pst.setString(4, jTxtDireccion.getText());
+            pst.setString(5, jTxtCodigoPostal.getText());
+            pst.setString(6, jTxtTelefono.getText());
+            pst.setString(7, jTxtEmail.getText());
+            pst.setString(8, (String) jBoxNacionalidad.getSelectedItem());
+            pst.setString(9, jTxtNacimiento.getText());
+            pst.setString(10, jTxtDni.getText());
+            pst.setString(11, (String) jBoxGenero.getSelectedItem());
+            pst.setString(12, jTxtLlegada.getText());
+            pst.setString(13, jTxtSalida.getText());
+            pst.setString(14, (String) jBoxPension.getSelectedItem());
+            pst.setString(15, (String) jBoxTipoHabitacion.getSelectedItem());
+            pst.setString(16, (String) jBoxNumeroHabitacion.getSelectedItem());
+            
+            pst.execute();
+            rs.close();
+            pst.close();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        this.updateTable();
+        
+        DefaultTableModel iModel = (DefaultTableModel) jTabla.getModel();
+        if(jTabla.getSelectedRow() == -1){
+            if(jTabla.getRowCount() == 0){
+                JOptionPane.showMessageDialog(null, "Actualizacion de reservas realizada", "Sistema de administracion", JOptionPane.OK_OPTION);
+            }
+        }
     }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTabla.getModel();
+        if(jTabla.getSelectedRow() == -1){
+            if(jTabla.getRowCount() == 0){
+                JOptionPane.showMessageDialog(null, "No hay informacion para borrar", "Sistema de administracion", JOptionPane.OK_OPTION);
+            }else{
+                JOptionPane.showMessageDialog(null, "Selecciona la fila para borrar", "Sistema de administracion", JOptionPane.OK_OPTION);
+            }
+        }else{
+            model.removeRow(jTabla.getSelectedRow());
+        }
     }//GEN-LAST:event_jButtonBorrarActionPerformed
-
+    
+    private JFrame frame;
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        // TODO add your handling code here:
+        
+        frame = new JFrame("Exit");
+        if(JOptionPane.showConfirmDialog(frame, "Confirma si quieres salir", "Sistema de administracion",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION){
+            System.exit(0);
+        }
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     /**
@@ -499,6 +651,9 @@ public class HotelDatabase extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private com.toedter.calendar.JDateChooser jPickLlegada;
+    private com.toedter.calendar.JDateChooser jPickNacimiento;
+    private com.toedter.calendar.JDateChooser jPickSalida;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTabla;
     private javax.swing.JTextField jTxtApellido;
@@ -511,10 +666,10 @@ public class HotelDatabase extends javax.swing.JFrame {
     private javax.swing.JTextField jTxtDni;
     private javax.swing.JTextField jTxtEmail;
     private javax.swing.JTextField jTxtImpuestos;
-    private com.toedter.calendar.JDateChooser jTxtLlegada;
-    private com.toedter.calendar.JDateChooser jTxtNacimiento;
+    private javax.swing.JTextField jTxtLlegada;
+    private javax.swing.JTextField jTxtNacimiento;
     private javax.swing.JTextField jTxtNombre;
-    private com.toedter.calendar.JDateChooser jTxtSalida;
+    private javax.swing.JTextField jTxtSalida;
     private javax.swing.JTextField jTxtSubtotal;
     private javax.swing.JTextField jTxtTelefono;
     private javax.swing.JTextField jTxtTotal;
