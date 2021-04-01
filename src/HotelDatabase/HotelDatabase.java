@@ -4,20 +4,95 @@
  * and open the template in the editor.
  */
 package HotelDatabase;
+import java.awt.HeadlessException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import java.sql.*;
+import java.text.DateFormat;
+import java.text.MessageFormat;
+import java.text.ParseException;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Vilardo
  */
 public class HotelDatabase extends javax.swing.JFrame {
-
+    
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    
+    DefaultTableModel model = new DefaultTableModel();
+    
+    
     /**
      * Creates new form HotelDatabase
      */
     public HotelDatabase() {
         initComponents();
+        
+        Object col[] = {"Cliente", "Nombre", "Apellido", "Direccion", "CodigoPostal", "Telefono", "Email", "Nacionalidad", "Nacimiento", "DNI", 
+            "Genero", "Llegada", "Salida", "Pension", "Tipohabitacion", "Ndehabitacion"};
+        
+        model.setColumnIdentifiers(col);
+        jTabla.setModel(model);
+        conn = this.ConnectDB();
+        this.updateTable();
+        
     }
-
+    
+    public static Connection ConnectDB(){
+        try{
+            Class.forName("org.sqlite.JDBC");
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:hotelDatabase.db");
+            return conn;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
+    }
+    
+    public void updateTable(){
+        conn = this.ConnectDB();
+        if(conn != null){
+            String sql = "Select Cliente,Nombre,Apellido,Direccion,CodigoPostal,Telefono,Email,Nacionalidad,Nacimiento,DNI,"
+                    + "Genero,Llegada,Salida,Pension,Tipohabitacion,Numerohabitacion from hotelDatabase";
+            
+            try{
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery();
+                Object[] columnData = new Object[16];
+                
+                while(rs.next()){
+                    columnData[0] = rs.getString("Cliente");
+                    columnData[1] = rs.getString("Nombre");
+                    columnData[2] = rs.getString("Apellido");
+                    columnData[3] = rs.getString("Direccion");
+                    columnData[4] = rs.getString("CodigoPostal");
+                    columnData[5] = rs.getString("Telefono");
+                    columnData[6] = rs.getString("Email");
+                    columnData[7] = rs.getString("Nacionalidad");
+                    columnData[8] = rs.getString("Nacimiento");
+                    columnData[9] = rs.getString("DNI");
+                    columnData[10] = rs.getString("Genero");
+                    columnData[11] = rs.getString("Llegada");
+                    columnData[12] = rs.getString("Salida");
+                    columnData[13] = rs.getString("Pension");
+                    columnData[14] = rs.getString("Tipohabitacion");
+                    columnData[15] = rs.getString("Numerohabitacion");
+                    model.addRow(columnData);             
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -285,11 +360,11 @@ public class HotelDatabase extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cliente", "Nombre", "Apellido", "Direccion", "Codigo Postal", "Telefono", "Email", "Nacionalidad", "Fecha de nacimiento", "DNI", "Genero", "Fecha de llegada", "Fecha de salida", "Pension", "Tipo de habitacion", "N° de Habitacion", "N° de Ext. Habitacion"
+                "Cliente", "Nombre", "Apellido", "Direccion", "CodigoPostal", "Telefono", "Email", "Nacionalidad", "Nacimiento", "DNI", "Genero", "Llegada", "Salida", "Pension", "Tipohabitacion", "Numerohabitacion"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
