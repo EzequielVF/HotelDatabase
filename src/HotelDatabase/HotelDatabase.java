@@ -26,6 +26,7 @@ public class HotelDatabase extends javax.swing.JFrame {
     Connection conn = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    int cantidad = 0;
     
     DefaultTableModel model = new DefaultTableModel();
     
@@ -69,7 +70,7 @@ public class HotelDatabase extends javax.swing.JFrame {
                 Object[] columnData = new Object[16];
                 
                 while(rs.next()){
-                    columnData[0] = rs.getString("Cliente");
+                    columnData[0] = rs.getInt("Cliente");
                     columnData[1] = rs.getString("Nombre");
                     columnData[2] = rs.getString("Apellido");
                     columnData[3] = rs.getString("Direccion");
@@ -102,8 +103,6 @@ public class HotelDatabase extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTxtCliente = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTxtNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -163,13 +162,6 @@ public class HotelDatabase extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        jLabel1.setText("Cliente");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jTxtCliente.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
-        getContentPane().add(jTxtCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 160, -1));
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         jLabel2.setText("Nombre");
@@ -478,7 +470,6 @@ public class HotelDatabase extends javax.swing.JFrame {
         /*DefaultTableModel model = (DefaultTableModel) jTabla.getModel();
         model.setRowCount(0);*/
         
-        jTxtCliente.setText("");
         jTxtNombre.setText("");
         jTxtApellido.setText("");
         jTxtDireccion.setText("");
@@ -521,7 +512,7 @@ public class HotelDatabase extends javax.swing.JFrame {
         
         try{
             pst = conn.prepareStatement(sql);
-            pst.setString(1, jTxtCliente.getText());
+            pst.setInt(1, cantidad+1);
             pst.setString(2, jTxtNombre.getText());
             pst.setString(3, jTxtApellido.getText());
             pst.setString(4, jTxtDireccion.getText());
@@ -545,7 +536,7 @@ public class HotelDatabase extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-        
+        cantidad++;
         this.updateTable();
         
         DefaultTableModel iModel = (DefaultTableModel) jTabla.getModel();
@@ -558,15 +549,31 @@ public class HotelDatabase extends javax.swing.JFrame {
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         DefaultTableModel model = (DefaultTableModel) jTabla.getModel();
-        if(jTabla.getSelectedRow() == -1){
-            if(jTabla.getRowCount() == 0){
-                JOptionPane.showMessageDialog(null, "No hay informacion para borrar", "Sistema de administracion", JOptionPane.OK_OPTION);
+        int indice;
+        Statement st = null;
+                
+        try{
+            //conn = this.ConnectDB();
+            st = conn.createStatement();
+            if(jTabla.getSelectedRow() == -1){
+                if(jTabla.getRowCount() == 0){
+                    JOptionPane.showMessageDialog(null, "No hay informacion para borrar", "Sistema de administracion", JOptionPane.OK_OPTION);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Selecciona la fila para borrar", "Sistema de administracion", JOptionPane.OK_OPTION);
+                }
             }else{
-                JOptionPane.showMessageDialog(null, "Selecciona la fila para borrar", "Sistema de administracion", JOptionPane.OK_OPTION);
+                indice = jTabla.getSelectedRow();        
+                int aux = (int)jTabla.getValueAt(indice, 0);
+                model.removeRow(indice);
+                String sql = "Delete from hotelDatabase where Cliente = "+aux;
+                st.executeUpdate(sql);
+                
             }
-        }else{
-            model.removeRow(jTabla.getSelectedRow());
+        }catch(Exception e){
+            e.printStackTrace();
         }
+        
+        
     }//GEN-LAST:event_jButtonBorrarActionPerformed
     
     private JFrame frame;
@@ -627,7 +634,6 @@ public class HotelDatabase extends javax.swing.JFrame {
     private javax.swing.JButton jButtonReiniciar;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JButton jButtonTotal;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -657,7 +663,6 @@ public class HotelDatabase extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTabla;
     private javax.swing.JTextField jTxtApellido;
-    private javax.swing.JTextField jTxtCliente;
     private javax.swing.JTextField jTxtCliente18;
     private javax.swing.JTextField jTxtCliente19;
     private javax.swing.JTextField jTxtCliente20;
