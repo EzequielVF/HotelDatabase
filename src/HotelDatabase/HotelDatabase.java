@@ -44,7 +44,15 @@ public class HotelDatabase extends javax.swing.JFrame {
         jTabla.setModel(model);
         conn = this.ConnectDB();
         this.updateTable();
-        
+        try{
+            cantidad = jTabla.getRowCount() - 1;
+            System.out.println(cantidad);
+            int valor = (int)jTabla.getValueAt(cantidad, 0);
+            cantidad = valor;
+            System.out.println(cantidad);
+        }catch(Exception e){
+            e.printStackTrace();
+        }   
     }
     
     public static Connection ConnectDB(){
@@ -539,7 +547,7 @@ public class HotelDatabase extends javax.swing.JFrame {
         cantidad++;
         this.updateTable();
         
-        DefaultTableModel iModel = (DefaultTableModel) jTabla.getModel();
+        //DefaultTableModel iModel = (DefaultTableModel) jTabla.getModel();
         if(jTabla.getSelectedRow() == -1){
             if(jTabla.getRowCount() == 0){
                 JOptionPane.showMessageDialog(null, "Actualizacion de reservas realizada", "Sistema de administracion", JOptionPane.OK_OPTION);
@@ -553,7 +561,6 @@ public class HotelDatabase extends javax.swing.JFrame {
         Statement st = null;
                 
         try{
-            //conn = this.ConnectDB();
             st = conn.createStatement();
             if(jTabla.getSelectedRow() == -1){
                 if(jTabla.getRowCount() == 0){
@@ -566,14 +573,11 @@ public class HotelDatabase extends javax.swing.JFrame {
                 int aux = (int)jTabla.getValueAt(indice, 0);
                 model.removeRow(indice);
                 String sql = "Delete from hotelDatabase where Cliente = "+aux;
-                st.executeUpdate(sql);
-                
+                st.executeUpdate(sql);        
             }
         }catch(Exception e){
             e.printStackTrace();
-        }
-        
-        
+        }     
     }//GEN-LAST:event_jButtonBorrarActionPerformed
     
     private JFrame frame;
