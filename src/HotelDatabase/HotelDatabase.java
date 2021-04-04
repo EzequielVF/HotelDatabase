@@ -5,6 +5,7 @@
  */
 package HotelDatabase;
 import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JFrame;
@@ -15,6 +16,8 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextField;
 
 /**
@@ -44,15 +47,15 @@ public class HotelDatabase extends javax.swing.JFrame {
         jTabla.setModel(model);
         conn = this.ConnectDB();
         this.updateTable();
-        try{
+        
+        cantidad = jTabla.getRowCount();
+        if(cantidad > 0){
             cantidad = jTabla.getRowCount() - 1;
-            System.out.println(cantidad);
             int valor = (int)jTabla.getValueAt(cantidad, 0);
             cantidad = valor;
-            System.out.println(cantidad);
-        }catch(Exception e){
-            e.printStackTrace();
-        }   
+        }else{
+            cantidad = 0;
+        }
     }
     
     public static Connection ConnectDB(){
@@ -64,7 +67,7 @@ public class HotelDatabase extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
             return null;
         }
-    }
+    }  
     
     public void updateTable(){
         conn = this.ConnectDB();
@@ -169,6 +172,8 @@ public class HotelDatabase extends javax.swing.JFrame {
         jTxtLlegada = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de inscripcion");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("hotel.png")));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
@@ -586,6 +591,11 @@ public class HotelDatabase extends javax.swing.JFrame {
         frame = new JFrame("Exit");
         if(JOptionPane.showConfirmDialog(frame, "Confirma si quieres salir", "Sistema de administracion",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION){
+            try {
+                conn.close();
+            } catch (Exception e){
+                e.printStackTrace();
+            }
             System.exit(0);
         }
     }//GEN-LAST:event_jButtonSalirActionPerformed
